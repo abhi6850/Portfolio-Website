@@ -1,0 +1,272 @@
+/* Ensure body top space for fixed navbar */
+/*font css*/
+
+
+
+body {
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+    padding-top: 70px;
+   background: radial-gradient(
+        circle, 
+        oklch(0.15 0.2 330 / 0), 
+        oklch(0.15 0.2 330 / 1)
+      ),
+    linear-gradient(
+        344deg in oklch,
+        oklch(0.3 0.37 310),
+        oklch(0.35 0.37 330),
+        oklch(0.3 0.37 310)
+      );
+      color:white
+     /* height of the navbar */
+    
+  }
+  .navbar {
+    background-color: orange;
+    color: white;
+  }
+  
+  /* Navbar adjustments */
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  
+  .navbar .nav-link {
+    margin-right: 10px;
+    transition: color 0.3s;
+    color:black;
+  }
+  
+  .navbar .nav-link:hover {
+    color:  #ff00c4;
+    scale:1.1;
+    transition: all 0.3s ease-in;
+  }
+  
+  /* Home section styling */
+
+  
+  /* Social icons */
+  .social-icons a {
+    color: inherit;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    background-color: red;
+    transform: scale(1.1);
+    /*color: #0d6efd;*/
+  }
+  .social-icon:hover .fa-instagram {
+    background-color: #E1306C !important;
+}
+  
+  /* Image styling */
+  .profile-pic {
+    border: 4px solid #dee2e6;
+    object-fit: cover;
+    max-height: 300px;
+  }
+  .subheading {
+    font-size: 2rem; 
+  }
+
+  
+
+  
+  /* Add spacing between sections */
+  section {
+    scroll-margin-top: 80px;
+    
+    
+  }
+
+
+
+
+
+  /*for article*/
+  
+@property --bg-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+@keyframes spin {
+  to {
+    --bg-angle: 360deg;
+  }
+}
+
+
+.article {
+  border-radius: 1rem;
+  box-shadow: 0.125rem 0.25rem 0.25rem 0.5rem oklch(0.1 0.37 315 / 0.25);
+  color: white;
+  
+    --bg-angle: 0deg;
+
+  animation: spin 2.5s infinite linear paused;
+  
+
+  background:
+    linear-gradient(
+        to bottom,
+        oklch(0.1 0.2 240 / 0.95),
+        oklch(0.1 0.2 240 / 0.95)
+      )
+      padding-box, /* ends at inner border edges */
+    conic-gradient(
+        from var(--bg-angle) in oklch longer hue,
+        oklch(0.85 0.37 0) 0 0
+      )
+      border-box; /* extends to outer border edges */
+  
+  /* a clear border lets the background gradient shine through */
+  border: 5px solid transparent ;
+
+  /* unpause the animation on hover */
+}
+.article:hover {
+  animation-play-state: running;
+  scale:1.05;
+  transition: all 1s;
+  /* background: #1A0033 ; */
+  background: #0D1B2A;
+  border-color: #ff00c4;
+}
+.article1 {
+  color: white;
+   background:
+    linear-gradient(
+        to bottom,
+        oklch(0.1 0.2 240 / 0.95),
+        oklch(0.1 0.2 240 / 0.95)
+      )
+      padding-box, /* ends at inner border edges */
+    conic-gradient(
+        from var(--bg-angle) in oklch longer hue,
+        #ff00c4 0 0
+      )
+      border-box;
+      border: 2.5px solid transparent;
+      
+  
+}
+.article1:hover {
+  scale:1.05;
+  transition: all 0.5s ease-in;
+  color:#ff00c4;
+}
+
+
+
+
+.skill-card {
+          /* Fixed width */
+  overflow: hidden;
+  margin: auto;
+  border-radius: 12px;
+  
+ 
+}
+
+/* Resize and fit image inside fixed box */
+.skill-card img {
+  width: 100%;
+  height: 76%;           /* Adjust as needed */
+  object-fit: contain;     /* Prevent stretching */
+  padding: 10px;
+  background-color: transparent;
+}
+.text-size {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 576px) {
+  
+  .skill-card {
+   height:250px !important;
+  }
+  /* CSS rules for screens 576px and smaller (mobile) */
+}
+/*HTML, CSS, Bootstrap, JS, Tailwind CSS, React JS, Mongo DB, Express JS, Node JS, MY-SQL, GIT, */
+/*1-Coursera, 3-NPTEL, 2-Infosys Springboard, 2-Netacad */
+/*MERN Stack E-commerce website, Twitter Clone, Homyz, Word Bot*/
+/* ---------- Animation additions (append to styles.css) ---------- */
+
+/* Initial hidden state for generic elements */
+.anim-hidden {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Slow left/right slide for main headings/text */
+.from-left {
+  transform: translateX(-60px);
+  transition: transform 1200ms cubic-bezier(.2, .9, .2, 1), opacity 1200ms;
+}
+
+.from-right {
+  transform: translateX(60px);
+  transition: transform 1200ms cubic-bezier(.2, .9, .2, 1), opacity 1200ms;
+}
+
+/* For cards we use a separate class so we don't touch .article */
+.anim-card {
+  /* transform: translateY(18px); */
+  transition: transform 800ms cubic-bezier(.2, .9, .2, 1), opacity 800ms;
+}
+
+/* final visible state */
+.show {
+  transform: translateX(0) translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* immediate hover override — applied only when you want instant hover */
+.instant-hover {
+  /* placeholder — no added visual rules here */
+}
+.instant-hover:hover {
+  transition: none !important; /* make hover effect immediate while preserving your .article hover styles */
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .from-left,
+  .from-right,
+  .anim-card,
+  .anim-hidden {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .instant-hover:hover {
+    transition: none !important;
+  }
+}
+
+/* Minor performance hint for images and cards */
+.card-img-top,
+.skill-card,
+img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* keep smooth page scrolling behavior */
+body {
+  scroll-behavior: smooth;
+}
+.card-img-top {
+  padding: 20px;          /* inner spacing */
+  object-fit: contain;     /* keeps entire image visible */
+  width: 100%;             /* prevents stretching */
+  height: 180px;           /* set a fixed height for uniformity */
+  border-radius: 10px;     /* optional: matches card rounding */
+  background-color: transparent; /* optional: avoid white bg */
+}
