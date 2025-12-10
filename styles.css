@@ -270,3 +270,113 @@ body {
   border-radius: 10px;     /* optional: matches card rounding */
   background-color: transparent; /* optional: avoid white bg */
 }
+html, body {
+  overflow-x: hidden;
+}
+#contact {
+  overflow-x: hidden;
+}
+
+#contact .article {
+  width: 100%;
+  max-width: 400px; /* smaller width for mobile */
+  margin: auto;
+}
+/* ===== CONTACT CENTER FIX ===== */
+#contact {
+  overflow-x: hidden; /* prevent animation overflow from creating scroll */
+}
+
+/* ensure wrapper centers on all viewports */
+#contact .d-flex {
+  width: 100%;
+  justify-content: center !important;
+  padding: 0 12px; /* small horizontal padding so the form never touches edges */
+  box-sizing: border-box;
+}
+
+/* make sure the form box uses box-sizing and fits within viewport */
+#contact form,
+#contact .article {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px; /* desktop value */
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* more compact on small screens */
+@media (max-width: 576px) {
+  #contact form,
+  #contact .article {
+    max-width: 360px; /* prevents overflow on very small devices */
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* disable hover transform on mobile (no hover on touch devices) */
+  .article:hover {
+    transform: none !important;
+  }
+
+  /* Also disable entry-translate (animation) causing initial offset in the contact section */
+  #contact .from-right,
+  #contact .from-left,
+  #contact .anim-hidden {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* Desktop: keep hover smooth but restrict transitions to transform/border */
+.article {
+  box-sizing: border-box;
+  will-change: transform, opacity, border-color;
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), border-color 160ms linear, box-shadow 180ms;
+}
+
+/* extra safety so card scaling won't push layout outside viewport */
+.article { transform-origin: center; }
+
+
+/* ================= FOOTER ================= */
+.footer-section {
+  background: linear-gradient(180deg, #0c0c1a, #140026);
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 2px solid #ff00c4;  /* matches your theme border */
+}
+
+.footer-content p {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Left text */
+.footer-left {
+  text-align: left;
+}
+
+/* Right text */
+.footer-right {
+  text-align: right;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center !important;
+    gap: 5px;
+  }
+  
+  .footer-left,
+  .footer-right {
+    text-align: center !important;
+    font-size: 0.95rem;
+  }
+}
