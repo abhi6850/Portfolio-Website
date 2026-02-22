@@ -116,7 +116,7 @@ body {
     linear-gradient(
         to bottom,
         oklch(0.1 0.2 240 / 0.95),
-        oklch(0.1 0.2 240 / 0.95)
+        #090046f2
       )
       padding-box, /* ends at inner border edges */
     conic-gradient(
